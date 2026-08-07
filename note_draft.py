@@ -10,6 +10,9 @@ import tempfile
 import uuid
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+from check_article import DEFAULT_CONFIG, run_checks  # noqa: E402
+
 ENV_PATH = Path(__file__).parent / ".env"
 
 # reference/draft_request.txt（実際のブラウザ操作のキャプチャ）と
@@ -77,6 +80,49 @@ def parse_frontmatter(text):
         sys.exit("frontmatterに title がありません。")
 
     return meta, body.strip()
+
+
+def update_frontmatter(source_path, updates):
+    """frontmatterに note_id/note_key などのフィールドを追記・更新して保存する。
+
+    既存下書きの更新（save_draftの再利用）に必要なnote_id/note_keyを
+    ソースファイル側に書き戻すために使う。
+    """
+    text = source_path.read_text(encoding="utf-8")
+    match = re.match(r"^(---\s*\n)(.*?\n)(---\s*\n)(.*)$", text, re.DOTALL)
+    if not match:
+        return
+
+    open_marker, raw_meta, close_marker, rest = match.groups()
+    lines = raw_meta.splitlines()
+    remaining = dict(updates)
+    new_lines = []
+    for line in lines:
+        key = line.split(":", 1)[0].strip() if ":" in line else None
+        if key in remaining:
+            new_lines.append(f"{key}: {remaining.pop(key)}")
+        else:
+            new_lines.append(line)
+    for key, value in remaining.items():
+        new_lines.append(f"{key}: {value}")
+
+    new_text = open_marker + "\n".join(new_lines) + "\n" + close_marker + rest
+    source_path.write_text(new_text, encoding="utf-8")
+
+
+def run_pre_publish_check(text):
+    findings = run_checks(text, DEFAULT_CONFIG)
+    errors = [f for f in findings if f.level == "ERROR"]
+    warns = [f for f in findings if f.level == "WARN"]
+
+    for f in errors + warns:
+        print(f, file=sys.stderr)
+
+    if errors:
+        sys.exit(
+            f"\ncheck_article.pyでERROR {len(errors)}件が見つかりました。"
+            "修正するか、確認のうえ --skip-check で強制実行してください。"
+        )
 
 
 def _inline(text):
@@ -267,6 +313,16 @@ def main():
         action="store_true",
         help="APIを叩かず、変換後のペイロードを表示するだけ",
     )
+    parser.add_argument(
+        "--new",
+        action="store_true",
+        help="frontmatterにnote_idがあっても、新規の下書きとして作成する",
+    )
+    parser.add_argument(
+        "--skip-check",
+        action="store_true",
+        help="check_article.pyによる公開前チェックをスキップする",
+    )
     args = parser.parse_args()
 
     source_path = Path(args.filepath)
@@ -274,6 +330,9 @@ def main():
         sys.exit(f"ファイルが見つかりません: {source_path}")
 
     text = source_path.read_text(encoding="utf-8")
+    if not args.skip_check:
+        run_pre_publish_check(text)
+
     meta, body = parse_frontmatter(text)
     html_body = markdown_to_note_html(body)
     payload = build_draft_payload(title=meta["title"], html_body=html_body)
@@ -289,10 +348,17 @@ def main():
         return
 
     cookie_header = load_cookie_header()
+    existing_note_id = meta.get("note_id") if not args.new else None
 
     try:
-        note_id, note_key = create_note(cookie_header)
-        save_draft(note_id, payload, cookie_header)
+        if existing_note_id:
+            note_id = existing_note_id
+            note_key = meta.get("note_key")
+            save_draft(note_id, payload, cookie_header)
+        else:
+            note_id, note_key = create_note(cookie_header)
+            save_draft(note_id, payload, cookie_header)
+            update_frontmatter(source_path, {"note_id": note_id, "note_key": note_key})
     except CookieAuthError as e:
         sys.exit(str(e))
     except UnexpectedResponseError as e:
@@ -301,7 +367,8 @@ def main():
         sys.exit(1)
 
     edit_url = f"https://editor.note.com/notes/{note_key}/edit"
-    print(f"下書きを作成しました: {edit_url}")
+    action = "更新" if existing_note_id else "作成"
+    print(f"下書きを{action}しました: {edit_url}")
 
 
 if __name__ == "__main__":
