@@ -146,8 +146,8 @@ def markdown_to_note_html(md_text):
 
 
 def build_draft_payload(title, html_body):
-    # tags(hashtags)は draft_save では設定できない模様（キャプチャにもNoteClient2にも
-    # 該当フィールドがなく、hashtagsは公開時のPUTでのみ登場する）。推測で追加しない。
+    # tags(hashtags)は draft_save では送信不可（NoteClient2のソースで確認済み。
+    # hashtagsは公開時のPUTでのみ登場し、draft_saveのペイロードには含まれない）。
     plain_text = re.sub(r"<[^>]+>", "", html_body)
     return {
         "body": html_body,
@@ -283,7 +283,7 @@ def main():
         if meta.get("tags"):
             print(
                 f"# 注意: tags {meta['tags']} はfrontmatterから読み取りましたが、"
-                "draft_save APIには送信されません（未確認のため）。",
+                "draft_save APIには送信されません（下書き保存にtagsフィールドは存在しないため）。",
                 file=sys.stderr,
             )
         return

@@ -11,11 +11,15 @@
 - ブロックエディタのHTMLは各ブロック（見出し・段落・リスト項目）に
   一意の `name`/`id`（UUID）が必要。見出しは `h2`（大見出し）/`h3`（小見出し）の2段階のみ。
   リストは `<ul name id><li><p name id>...</p></li></ul>` という入れ子構造。
-- draft_save のペイロードに `tags`/`hashtags` に相当するフィールドは
-  キャプチャにもNoteClient2にも見当たらなかった（hashtagsは公開時のPUTでのみ登場）。
-  そのため現状は **frontmatterのtagsは解析するがAPIには送っていない**（推測で送信しない）。
-  タグ付けの実際のAPIを知りたい場合は、ブラウザで既存下書きにタグを追加する操作を行い、
-  そのときのNetworkリクエストを新しくキャプチャして教えてください。
+- draft_save のペイロードに `tags`/`hashtags` に相当するフィールドは存在しない
+  ことを確認済み（2026-08-07、NoteClient2本体のソースコードを直接確認）。
+  `draft_save` (`POST /api/v1/text_notes/draft_save?id={note_id}`) が受け付けるのは
+  `body`, `body_length`, `name`, `index`, `is_lead_form`, `image_keys` のみで、
+  `hashtags` は記事**公開**時の `PUT /api/v1/text_notes/{note_id}` にのみ含まれる
+  （同PUTでは `hashtags`, `free_body`, `pay_body`, `status`, `price`, `magazine_ids` 等も送信される）。
+  そのため **frontmatterのtagsは解析するがdraft_save APIには送らない**現在の実装が正しい。
+  下書き保存にtagsを送る手段は存在しないため、tags対応には公開処理（PUT）自体の
+  新規実装が必要（このツールは意図的に公開処理を実装していない）。
 - draft_save の成功レスポンスは `{"data":{"result":true,"note_days_count":0,"updated_at":"..."}}`。
   実アカウントでの実行で確認済み（`note_draft.py` は `data.result is True` で成功判定）。
 - create_note (`POST /api/v1/text_notes`, `{"template_key": null}`) の成功レスポンスは
