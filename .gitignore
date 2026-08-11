@@ -9,9 +9,3 @@ drafts/
 # 開発者ツールから取得したcurlダンプは、将来生Cookieが混入する可能性があるため念のため除外
 reference/*.txt
 !reference/README.md
-
-# Obsidian: 端末ローカルの状態・キャッシュはコミットしない
-vault/.obsidian/workspace.json
-vault/.obsidian/workspace-mobile.json
-vault/.obsidian/cache
-vault/.trash/
