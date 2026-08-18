@@ -9,3 +9,7 @@ drafts/
 # 開発者ツールから取得したcurlダンプは、将来生Cookieが混入する可能性があるため念のため除外
 reference/*.txt
 !reference/README.md
+
+# Threads連携の実行時ログ・状態ファイル（トークンの手がかりを含みうるため非公開）
+threads_refresh.log
+threads_posted.json

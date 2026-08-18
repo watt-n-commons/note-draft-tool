@@ -56,6 +56,24 @@ python note_draft.py drafts/2026-07-27_sample.md --skip-check
 
 `reference/README.md` に解析の詳細と既知のギャップを記載しています。
 
+## Threads連携
+
+note記事の公開後、Watt & Commonsの Threadsアカウントへ手動で告知投稿できる。
+セットアップ手順は `reference/threads_setup.md` を参照。
+
+```bash
+# 初回のみ：アクセストークン取得（対話式）
+python3 threads_auth_init.py
+
+# note.com側で「公開」した後、手動で実行する
+python3 announce_threads.py drafts/xxx.md --comment "一言コメント"
+```
+
+`note_draft.py` は下書き保存のみを行う仕様のため、Threadsへの投稿は
+自動連動させていない（下書き段階でリンクを告知する事故を防ぐため）。
+アクセストークンの60日ごとの更新は `threads_refresh_token.py` をcronに
+登録して自動化する。
+
 ## 実装メモ：requestsではなくcurlを使っている理由
 
 当初 `requests` ライブラリでPOSTしたところ、実際のブラウザと同一のCookie・ヘッダーでも
