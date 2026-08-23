@@ -14,19 +14,18 @@ cronで毎日実行しても、閾値未満なら何もせず終了する（冪�
 import argparse
 import sys
 import time
-from pathlib import Path
 
 from threads_client import ThreadsAPIError, load_env, refresh_long_lived_token, save_env
 
 REFRESH_AFTER_DAYS = 45  # 60日失効に対して余裕を持たせる
-LOG_PATH = Path(__file__).parent / "threads_refresh.log"
 
 
 def log(message):
+    # cron側で `>> threads_refresh.log 2>&1` によりstdoutをログファイルへ
+    # リダイレクトしているため、ここでは標準出力にだけ書く
+    # （ファイルへも直接書くと、cron実行時に二重に記録されてしまう）
     line = f"{time.strftime('%Y-%m-%d %H:%M:%S')} {message}"
     print(line)
-    with LOG_PATH.open("a", encoding="utf-8") as f:
-        f.write(line + "\n")
 
 
 def main():
