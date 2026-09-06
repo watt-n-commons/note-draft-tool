@@ -78,10 +78,26 @@ class Finding:
 # ユーティリティ
 # ---------------------------------------------------------------------------
 
+def strip_frontmatter(text):
+    """先頭のYAML frontmatter（---で囲まれたブロック）を取り除く。
+
+    frontmatterの閉じ`---`が、本文と出典の区切り線と誤認されるのを防ぐため、
+    本文チェックの前段で必ず取り除く。
+    """
+    lines = text.split("\n")
+    if not lines or lines[0].strip() != "---":
+        return text
+    for i in range(1, len(lines)):
+        if lines[i].strip() == "---":
+            return "\n".join(lines[i + 1:])
+    return text  # 閉じの --- が無ければfrontmatterとはみなさない
+
+
 def split_body_and_citations(text, markers):
     """本文と出典注記セクションを分離する。
 
     最後の水平線(---)以降、または出典見出し以降を注記とみなす。
+    呼び出し側でfrontmatterを除去済みであることを前提とする。
     """
     lines = text.split("\n")
 
@@ -235,6 +251,7 @@ def check_broken_markdown(text):
 # ---------------------------------------------------------------------------
 
 def run_checks(text, cfg):
+    text = strip_frontmatter(text)
     body, citations = split_body_and_citations(text, cfg["citation_markers"])
 
     findings = []
