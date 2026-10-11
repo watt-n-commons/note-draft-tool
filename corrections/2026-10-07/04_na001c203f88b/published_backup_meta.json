@@ -1,0 +1,46 @@
+{
+  "id": 179607759,
+  "key": "na001c203f88b",
+  "name": "需要側の工夫——電源を増やさず、使い方を変える",
+  "status": "published",
+  "publish_at": "2026-09-11T06:47:48.000+09:00",
+  "like_count": 0,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/312418574/rectangle_large_type_2_36b99de92f6e29c42c3f664d0fefa5ff.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1272712023,
+      "created_at": "2026-09-11T06:47:48.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1272712021,
+      "created_at": "2026-09-11T06:47:48.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1272712022,
+      "created_at": "2026-09-11T06:47:48.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    },
+    {
+      "id": 1272712024,
+      "created_at": "2026-09-11T06:47:48.000+09:00",
+      "hashtag": {
+        "name": "#デマンドレスポンス"
+      }
+    },
+    {
+      "id": 1272712025,
+      "created_at": "2026-09-11T06:47:48.000+09:00",
+      "hashtag": {
+        "name": "#ワークロードシフト"
+      }
+    }
+  ]
+}

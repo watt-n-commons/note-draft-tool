@@ -1,0 +1,46 @@
+{
+  "id": 177495123,
+  "key": "n069ce6783573",
+  "name": "電力確度——この連載で、いちばん最初にゼロを打つ項目",
+  "status": "published",
+  "publish_at": "2026-08-30T10:41:08.000+09:00",
+  "like_count": 1,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/308401362/rectangle_large_type_2_8883e35e084ef416416a255cde955dbd.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1254007088,
+      "created_at": "2026-08-30T10:41:08.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1254007084,
+      "created_at": "2026-08-30T10:41:08.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1254007086,
+      "created_at": "2026-08-30T10:41:08.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    },
+    {
+      "id": 1254007089,
+      "created_at": "2026-08-30T10:41:08.000+09:00",
+      "hashtag": {
+        "name": "#GX戦略地域"
+      }
+    },
+    {
+      "id": 1254007090,
+      "created_at": "2026-08-30T10:41:08.000+09:00",
+      "hashtag": {
+        "name": "#立地評価"
+      }
+    }
+  ]
+}
