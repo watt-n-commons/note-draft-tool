@@ -1,0 +1,46 @@
+{
+  "id": 178183212,
+  "key": "n39f47e0e093a",
+  "name": "地域受容性——空いた土地の話ではなく、隣に住む人の話",
+  "status": "published",
+  "publish_at": "2026-09-03T07:23:11.000+09:00",
+  "like_count": 0,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/309717893/rectangle_large_type_2_93ec00206862f3cb67ea36384a36648b.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1260041263,
+      "created_at": "2026-09-03T07:23:11.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1260041267,
+      "created_at": "2026-09-03T07:23:11.000+09:00",
+      "hashtag": {
+        "name": "#印西市"
+      }
+    },
+    {
+      "id": 1260041266,
+      "created_at": "2026-09-03T07:23:11.000+09:00",
+      "hashtag": {
+        "name": "#GX戦略地域"
+      }
+    },
+    {
+      "id": 1260041265,
+      "created_at": "2026-09-03T07:23:11.000+09:00",
+      "hashtag": {
+        "name": "#立地評価"
+      }
+    },
+    {
+      "id": 1260041264,
+      "created_at": "2026-09-03T07:23:11.000+09:00",
+      "hashtag": {
+        "name": "#地域受容性"
+      }
+    }
+  ]
+}

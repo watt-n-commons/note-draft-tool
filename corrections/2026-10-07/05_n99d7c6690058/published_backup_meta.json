@@ -1,0 +1,39 @@
+{
+  "id": 179855146,
+  "key": "n99d7c6690058",
+  "name": "まとめ——4つの手段は、対立ではなく組み合わせだった",
+  "status": "published",
+  "publish_at": "2026-09-12T15:46:17.000+09:00",
+  "like_count": 0,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/312899527/rectangle_large_type_2_7542935968b0f4eaf021a241c64dba6b.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1275018189,
+      "created_at": "2026-09-12T15:46:17.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1275018190,
+      "created_at": "2026-09-12T15:46:17.000+09:00",
+      "hashtag": {
+        "name": "#まとめ"
+      }
+    },
+    {
+      "id": 1275018187,
+      "created_at": "2026-09-12T15:46:17.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1275018188,
+      "created_at": "2026-09-12T15:46:17.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    }
+  ]
+}

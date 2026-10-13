@@ -1,0 +1,46 @@
+{
+  "id": 179303362,
+  "key": "n987e334a2e2c",
+  "name": "電源隣接——原発の近くに、土地を構えておく",
+  "status": "published",
+  "publish_at": "2026-09-09T14:06:41.000+09:00",
+  "like_count": 0,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/311864328/rectangle_large_type_2_d96feeb8a7eb3ae474fc70c413a02bfc.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1270150498,
+      "created_at": "2026-09-09T14:06:42.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1270150496,
+      "created_at": "2026-09-09T14:06:41.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1270150500,
+      "created_at": "2026-09-09T14:06:42.000+09:00",
+      "hashtag": {
+        "name": "#原子力"
+      }
+    },
+    {
+      "id": 1270150497,
+      "created_at": "2026-09-09T14:06:41.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    },
+    {
+      "id": 1270150499,
+      "created_at": "2026-09-09T14:06:42.000+09:00",
+      "hashtag": {
+        "name": "#電源隣接"
+      }
+    }
+  ]
+}

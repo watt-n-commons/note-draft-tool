@@ -1,0 +1,39 @@
+{
+  "id": 178904848,
+  "key": "n7b4c7f095a0f",
+  "name": "データセンターは、電気をどう手に入れているのか——4つの手段を並べてみる",
+  "status": "published",
+  "publish_at": "2026-09-07T08:28:10.000+09:00",
+  "like_count": 1,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/311099277/rectangle_large_type_2_ba5ee25a620615461c02e98146340c0c.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1266568427,
+      "created_at": "2026-09-07T08:28:10.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1266568425,
+      "created_at": "2026-09-07T08:28:10.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1266568426,
+      "created_at": "2026-09-07T08:28:10.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    },
+    {
+      "id": 1266568428,
+      "created_at": "2026-09-07T08:28:10.000+09:00",
+      "hashtag": {
+        "name": "#電源直結"
+      }
+    }
+  ]
+}

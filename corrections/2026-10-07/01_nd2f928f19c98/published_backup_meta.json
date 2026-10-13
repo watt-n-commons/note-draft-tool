@@ -1,0 +1,39 @@
+{
+  "id": 179077113,
+  "key": "nd2f928f19c98",
+  "name": "電源直結——発電所の隣に建てれば、系統を待たなくていい",
+  "status": "published",
+  "publish_at": "2026-09-08T06:47:39.000+09:00",
+  "like_count": 1,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/311423130/rectangle_large_type_2_ff269aa01a67f49368ace90092269f2a.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1268059195,
+      "created_at": "2026-09-08T06:47:39.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1268059193,
+      "created_at": "2026-09-08T06:47:39.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1268059194,
+      "created_at": "2026-09-08T06:47:39.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    },
+    {
+      "id": 1268059196,
+      "created_at": "2026-09-08T06:47:39.000+09:00",
+      "hashtag": {
+        "name": "#電源直結"
+      }
+    }
+  ]
+}
