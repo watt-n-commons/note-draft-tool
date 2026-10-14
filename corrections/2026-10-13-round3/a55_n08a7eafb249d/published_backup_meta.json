@@ -1,0 +1,46 @@
+{
+  "id": 183710719,
+  "key": "n08a7eafb249d",
+  "name": "BTMと蓄電池は　対立ではなく階層が違う",
+  "status": "published",
+  "publish_at": "2026-10-04T09:49:42.000+09:00",
+  "like_count": 0,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/320557404/rectangle_large_type_2_529b761265527122d3b89fbba5db5b1b.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1310464415,
+      "created_at": "2026-10-04T09:49:42.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1310464416,
+      "created_at": "2026-10-04T09:49:42.000+09:00",
+      "hashtag": {
+        "name": "#蓄電池"
+      }
+    },
+    {
+      "id": 1310464419,
+      "created_at": "2026-10-04T09:49:42.000+09:00",
+      "hashtag": {
+        "name": "#パワーエックス"
+      }
+    },
+    {
+      "id": 1310464418,
+      "created_at": "2026-10-04T09:49:42.000+09:00",
+      "hashtag": {
+        "name": "#BTM"
+      }
+    },
+    {
+      "id": 1310464417,
+      "created_at": "2026-10-04T09:49:42.000+09:00",
+      "hashtag": {
+        "name": "#電池系統"
+      }
+    }
+  ]
+}
