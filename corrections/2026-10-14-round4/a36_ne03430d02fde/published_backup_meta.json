@@ -1,0 +1,46 @@
+{
+  "id": 179444707,
+  "key": "ne03430d02fde",
+  "name": "正攻法——「席だけ予約して使わない」問題に、国がついに動いた",
+  "status": "published",
+  "publish_at": "2026-09-10T08:40:01.000+09:00",
+  "like_count": 0,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/312113297/rectangle_large_type_2_b2c28cad38ee4ef1794976342e9b57e4.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1271295587,
+      "created_at": "2026-09-10T08:40:01.000+09:00",
+      "hashtag": {
+        "name": "#エネルギー"
+      }
+    },
+    {
+      "id": 1271295585,
+      "created_at": "2026-09-10T08:40:01.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1271295586,
+      "created_at": "2026-09-10T08:40:01.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    },
+    {
+      "id": 1271295589,
+      "created_at": "2026-09-10T08:40:01.000+09:00",
+      "hashtag": {
+        "name": "#系統接続"
+      }
+    },
+    {
+      "id": 1271295588,
+      "created_at": "2026-09-10T08:40:01.000+09:00",
+      "hashtag": {
+        "name": "#空押さえ"
+      }
+    }
+  ]
+}

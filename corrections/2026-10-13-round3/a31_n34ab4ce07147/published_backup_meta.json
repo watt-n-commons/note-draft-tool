@@ -1,0 +1,39 @@
+{
+  "id": 178377307,
+  "key": "n34ab4ce07147",
+  "name": "技術適合性——遅れていたはずの技術が、数ヶ月で追いついてきた",
+  "status": "published",
+  "publish_at": "2026-09-04T09:48:53.000+09:00",
+  "like_count": 0,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/310077773/rectangle_large_type_2_ad71bbdf5b6648971ff2bc72366c8e49.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1261715894,
+      "created_at": "2026-09-04T09:48:53.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1261715895,
+      "created_at": "2026-09-04T09:48:53.000+09:00",
+      "hashtag": {
+        "name": "#液冷"
+      }
+    },
+    {
+      "id": 1261715897,
+      "created_at": "2026-09-04T09:48:53.000+09:00",
+      "hashtag": {
+        "name": "#冷却技術"
+      }
+    },
+    {
+      "id": 1261715896,
+      "created_at": "2026-09-04T09:48:53.000+09:00",
+      "hashtag": {
+        "name": "#立地評価"
+      }
+    }
+  ]
+}

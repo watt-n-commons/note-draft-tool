@@ -1,0 +1,46 @@
+{
+  "id": 177649000,
+  "key": "n9451583442db",
+  "name": "運用可能性——「決まったはず」が、決まった通りに進まない",
+  "status": "published",
+  "publish_at": "2026-08-31T07:33:16.000+09:00",
+  "like_count": 2,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/308712090/rectangle_large_type_2_62e4b8beec47898518b653c5bc992ac3.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1255363989,
+      "created_at": "2026-08-31T07:33:16.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1255363991,
+      "created_at": "2026-08-31T07:33:16.000+09:00",
+      "hashtag": {
+        "name": "#投資額"
+      }
+    },
+    {
+      "id": 1255363993,
+      "created_at": "2026-08-31T07:33:16.000+09:00",
+      "hashtag": {
+        "name": "#電力系統"
+      }
+    },
+    {
+      "id": 1255363990,
+      "created_at": "2026-08-31T07:33:16.000+09:00",
+      "hashtag": {
+        "name": "#GX戦略地域"
+      }
+    },
+    {
+      "id": 1255363992,
+      "created_at": "2026-08-31T07:33:16.000+09:00",
+      "hashtag": {
+        "name": "#立地評価"
+      }
+    }
+  ]
+}

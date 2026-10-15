@@ -1,0 +1,53 @@
+{
+  "id": 177857284,
+  "key": "n549f1f939537",
+  "name": "需要確度——器はあっても、そこに座る人がいない",
+  "status": "published",
+  "publish_at": "2026-09-01T10:35:00.000+09:00",
+  "like_count": 1,
+  "eyecatch": "https://assets.st-note.com/production/uploads/images/309102790/rectangle_large_type_2_24f03d753c6aa93fcf7e5bc9a646be48.png?fit=bounds&quality=85&width=1280",
+  "hashtag_notes": [
+    {
+      "id": 1257197754,
+      "created_at": "2026-09-01T10:35:00.000+09:00",
+      "hashtag": {
+        "name": "#データセンター"
+      }
+    },
+    {
+      "id": 1257197759,
+      "created_at": "2026-09-01T10:35:00.000+09:00",
+      "hashtag": {
+        "name": "#富山"
+      }
+    },
+    {
+      "id": 1257197758,
+      "created_at": "2026-09-01T10:35:00.000+09:00",
+      "hashtag": {
+        "name": "#香川"
+      }
+    },
+    {
+      "id": 1257197757,
+      "created_at": "2026-09-01T10:35:00.000+09:00",
+      "hashtag": {
+        "name": "#投資額"
+      }
+    },
+    {
+      "id": 1257197755,
+      "created_at": "2026-09-01T10:35:00.000+09:00",
+      "hashtag": {
+        "name": "#GX戦略地域"
+      }
+    },
+    {
+      "id": 1257197756,
+      "created_at": "2026-09-01T10:35:00.000+09:00",
+      "hashtag": {
+        "name": "#立地評価"
+      }
+    }
+  ]
+}
