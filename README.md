@@ -82,3 +82,30 @@ CloudFront（note.comのCDN）に `403 Request blocked` で弾かれた。原因
 （bot対策が汎用HTTPクライアントのデフォルトUser-Agent等を検知していたと見られる）。
 `reference/draft_request.txt` でキャプチャした実ブラウザのヘッダーをフルセットで
 再現することで解決した。実装は `subprocess` 経由でシステムの `curl` コマンドを呼び出す形。
+
+## eyecatch.py（アイキャッチをローカルで生成する）
+
+Canvaを使わずに、標準レイアウト（左：イラスト／右：ネイビーのパネル＋タイトル／左上：ロゴバッジ）の
+1280x720のPNGを作る。ロゴは原本の画像をそのまま使い、日本語は太字で書き出される。
+
+```bash
+pip3 install Pillow
+
+# 重ね合わせた2枚の地図（見直し・検証）
+python3 eyecatch.py out.png --subtitle "コラム" --illustration sheets \
+    --line "公開済みの記事を、" --line "見直してみた" --line "" \
+    --line "数字の読み違いと、" --line "言葉の精度"
+
+# 電力網の一点へ、手が伸びる図（--hands 2〜4）
+python3 eyecatch.py out.png --subtitle "海外比較×ソブリン性　第1回" --illustration hands --hands 3 \
+    --line "「進んでいる」" --line "「遅れている」" --line "では比べない" --line "" \
+    --line "各国が握ろうと" --line "しているもの"
+
+# 外部のイラスト（Canvaなどで作った絵）を左半分に敷く
+python3 eyecatch.py out.png --subtitle "..." --illustration image --image illustration.png --line "..."
+```
+
+- タイトルは `--line` を行ごとに指定する（`""` は行間）。行の先頭・末尾にダッシュを置かない。
+- ロゴ原本は、既定でDriveの `04_Brand/watt and commons logo`。場所が違えば `--logo` または環境変数 `EYECATCH_LOGO`。
+- 日本語フォントは macOS の Hiragino Sans GB（W6）。他OSでは `--font` で指定する。
+- 生成物は必ず目視で確認する（行分け・文字の欠け・イラストの重なり）。note への画像アップロードは手動。
