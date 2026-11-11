@@ -9,6 +9,7 @@
 イラストの種類（--illustration）:
   sheets   重ね合わせた2枚の地図（等高線）と、チェックマーク（見直し・検証）
   hands    電力網の一点へ、複数の手が伸びる図（--hands で本数。2〜4）
+  onsite   点線の囲い（構内）の中で、発電所とデータセンターが1本の線で直接つながる図（電源直結）
   image    外部のイラスト画像（PNG/JPEG）を左半分いっぱいに敷く（Canvaなどで作った絵を渡す用）
 
 使い方（タイトルは --line を行ごとに指定。空文字 "" は行間のスペース）:
@@ -226,6 +227,58 @@ def draw_hands(img, ctx, hands=3, **_):
     return rgba.convert("RGB")
 
 
+# ───────────────────── イラスト：構内で、発電所とデータセンターが直接つながる ─────────────────────
+def _dashed_rect(d, box, dash=16, gap=11, **kw):
+    x0, y0, x1, y1 = [v * S for v in box]
+    for (ax, ay, bx, by) in ((x0, y0, x1, y0), (x1, y0, x1, y1), (x1, y1, x0, y1), (x0, y1, x0, y0)):
+        n = math.hypot(bx - ax, by - ay)
+        t = 0
+        while t < n:
+            u, v = t / n, min(t + dash * S, n) / n
+            d.line([(ax + (bx - ax) * u, ay + (by - ay) * u), (ax + (bx - ax) * v, ay + (by - ay) * v)], **kw)
+            t += (dash + gap) * S
+
+
+def draw_onsite(img, ctx, **_):
+    d = ImageDraw.Draw(img)
+    fill, edge = (8, 30, 56), EM
+    ly = 565                                                    # 直結線の高さ
+    # 囲いの外：つながっていない系統の線（薄く）
+    for (a, b) in (((470, 250), (600, 330)), ((600, 330), (610, 470)), ((470, 250), (380, 275))):
+        d.line([(a[0] * S, a[1] * S), (b[0] * S, b[1] * S)], fill=(20, 110, 100), width=2 * S)
+    for p in ((470, 250), (600, 330), (380, 275)):
+        d.ellipse([(p[0] - 6) * S, (p[1] - 6) * S, (p[0] + 6) * S, (p[1] + 6) * S],
+                  fill=(14, 84, 96), outline=(20, 110, 100), width=2 * S)
+    # 構内の囲い（点線）
+    _dashed_rect(d, (55, 340, 590, 650), fill=CREAM, width=3 * S)
+    # 発電所：建屋・煙突2本・冷却塔
+    d.rectangle([85 * S, 520 * S, 245 * S, 620 * S], fill=fill, outline=edge, width=3 * S)
+    for x in (110, 150):
+        d.rectangle([x * S, 405 * S, (x + 18) * S, 520 * S], fill=fill, outline=edge, width=3 * S)
+        d.line([(x * S, 430 * S), ((x + 18) * S, 430 * S)], fill=CREAM, width=3 * S)
+    tower = [(183, 520), (196, 487), (191, 445), (237, 445), (232, 487), (245, 520)]   # 冷却塔（くびれのある形）
+    d.polygon([(x * S, y * S) for x, y in tower], fill=fill)
+    d.line([(x * S, y * S) for x, y in tower], fill=edge, width=3 * S, joint="curve")
+    for x in (100, 125, 150, 175, 200, 225):
+        d.rectangle([x * S, 545 * S, (x + 10) * S, 570 * S], fill=EM_D)
+    # データセンター：建屋とラック列
+    d.rectangle([395 * S, 440 * S, 560 * S, 620 * S], fill=fill, outline=edge, width=3 * S)
+    for i in range(4):
+        y = 458 + i * 38
+        d.rounded_rectangle([412 * S, y * S, 543 * S, (y + 26) * S], radius=4 * S, outline=LIGHT, width=2 * S)
+        for j in range(3):
+            d.ellipse([(424 + j * 14) * S, (y + 9) * S, (432 + j * 14) * S, (y + 17) * S], fill=EM)
+        d.line([(480 * S, (y + 13) * S), (532 * S, (y + 13) * S)], fill=LIGHT, width=2 * S)
+    # 直結線と、中心の輪
+    x0, x1 = 245, 395
+    d.line([(x0 * S, ly * S), (x1 * S, ly * S)], fill=EM, width=5 * S)
+    cx = (x0 + x1) / 2
+    for r in (30, 20):
+        d.ellipse([(cx - r) * S, (ly - r) * S, (cx + r) * S, (ly + r) * S], outline=EM, width=2 * S)
+    d.ellipse([(cx - 9) * S, (ly - 9) * S, (cx + 9) * S, (ly + 9) * S], fill=EM)
+    return img
+
+
 # ───────────────────── イラスト：外部画像 ─────────────────────
 def draw_image(img, ctx, image=None, **_):
     if not image:
@@ -239,7 +292,7 @@ def draw_image(img, ctx, image=None, **_):
     return img
 
 
-ILLUSTRATIONS = {"sheets": draw_sheets, "hands": draw_hands, "image": draw_image}
+ILLUSTRATIONS = {"sheets": draw_sheets, "hands": draw_hands, "onsite": draw_onsite, "image": draw_image}
 
 
 # ───────────────────── パネル・ロゴ ─────────────────────
@@ -312,7 +365,7 @@ def main():
 
     check_title(a.line)
     ctx = Ctx(a.font, a.font_index, a.logo)
-    img = base_image(ctx, "dark" if a.illustration == "hands" else "teal")
+    img = base_image(ctx, "dark" if a.illustration in ("hands", "onsite") else "teal")
     img = ILLUSTRATIONS[a.illustration](img, ctx, hands=a.hands, image=a.image)
     img = draw_panel(img, ctx, a.subtitle, a.line, a.size)
     img = draw_badge(img, ctx, a.badge)
