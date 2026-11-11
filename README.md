@@ -101,6 +101,10 @@ python3 eyecatch.py out.png --subtitle "海外比較×ソブリン性　第1回"
     --line "「進んでいる」" --line "「遅れている」" --line "では比べない" --line "" \
     --line "各国が握ろうと" --line "しているもの"
 
+# 点線の囲い（構内）の中で、発電所とデータセンターが直接つながる図（電源直結）
+python3 eyecatch.py out.png --subtitle "電源直結を、制度から読む（1）" --illustration onsite \
+    --line "発表にあったのは、" --line "「構内」と" --line "「オンサイト」だった"
+
 # 外部のイラスト（Canvaなどで作った絵）を左半分に敷く
 python3 eyecatch.py out.png --subtitle "..." --illustration image --image illustration.png --line "..."
 ```
