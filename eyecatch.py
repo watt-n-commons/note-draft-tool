@@ -315,7 +315,11 @@ def draw_panel(img, ctx, subtitle, lines, size):
         w = d.textlength(text, font=font)
         d.text((cx * S - w / 2, y * S), text, font=font, fill=fill, stroke_width=sw, stroke_fill=fill)
 
-    centered(subtitle, ctx.font(22), top, LIGHT, 1)
+    sub_size = 22
+    sub_w = d.textlength(subtitle, font=ctx.font(sub_size)) / S
+    if sub_w > 560:                                  # 長い小見出しは縮小（パネルの端に付かないように）
+        sub_size = sub_size * 560 / sub_w
+    centered(subtitle, ctx.font(sub_size), top, LIGHT, 1)
     y = top + 22 * 1.3 + 24
     for t in lines:
         if not t:
